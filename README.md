@@ -128,7 +128,13 @@ https://discuss.elastic.co/t/logstash-an-exceptioncaught-event-was-fired-and-it-
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 https://stackoverflow.com/questions/62017152/not-able-to-change-the-jdk-in-mac-os-using-jenv
 
-
+# Where does elasticsearch store data ?
+https://stackoverflow.com/questions/33303786/where-does-elasticsearch-store-its-data
+Elasticsearch does not store all data on the heap. Instead data is read from disk when 
+required and the heap is basically used as working memory. This is why the heap should be as 
+most 50% of available RAM (ideally as small as the use case allows 4). The rest of available RAM is 
+used for some off-heap storage 
+and the operating system page cache, which are both essential for good performance.
 
 
 
